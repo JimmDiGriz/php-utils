@@ -1,0 +1,19 @@
+{
+    "name": "jimmdigriz/utils",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "JimmDiGriz",
+            "email": "icsdisk@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "jimmdigriz\\utils\\": ""
+        }
+    }
+}
