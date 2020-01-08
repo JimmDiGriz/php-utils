@@ -3,8 +3,6 @@
  * Author: JimmDiGriz
  */
 
-require_once __DIR__ . '/../vendor/autoload.php';
-
 use jimmdigriz\utils\BenchUtils;
 use PHPUnit\Framework\TestCase;
 
