@@ -29,6 +29,16 @@ class DateUtils
         return $left->diffInMinutes($right);
     }
 
+    public static function addMinutes(CarbonInterface $left, int $minutes): CarbonInterface
+    {
+        return $left->addMinutes($minutes);
+    }
+
+    public static function subMinutes(CarbonInterface $left, int $minutes): CarbonInterface
+    {
+        return static::addMinutes($left, -$minutes);
+    }
+
     public static function now(string $timezone = null): CarbonInterface
     {
         return Carbon::now()->setTimezone($timezone ?? static::DEFAULT_TIMEZONE);
