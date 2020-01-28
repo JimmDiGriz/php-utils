@@ -26,4 +26,13 @@ class DateUtilsTest extends TestCase
     {
         $this->assertEquals($parsed, DateUtils::subMinutes(DateUtils::addMinutes($parsed, 5), 5));
     }
+
+    /**
+     * @depends testParsing
+     * @param CarbonInterface $parsed
+     */
+    public function testSecondsManipulation(CarbonInterface $parsed): void
+    {
+        $this->assertEquals($parsed, DateUtils::subSeconds(DateUtils::addSeconds($parsed, 5), 5));
+    }
 }

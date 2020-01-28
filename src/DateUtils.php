@@ -41,7 +41,22 @@ class DateUtils
 
     public static function subMinutes(CarbonInterface $left, int $minutes): CarbonInterface
     {
-        return static::addMinutes($left, -$minutes);
+        return $left->subMinutes($minutes);
+    }
+
+    public static function getSecondsDiff(CarbonInterface $left, CarbonInterface $right): int
+    {
+        return $left->diffInSeconds($right);
+    }
+
+    public static function addSeconds(CarbonInterface $left, int $seconds): CarbonInterface
+    {
+        return $left->addSeconds($seconds);
+    }
+
+    public static function subSeconds(CarbonInterface $left, int $seconds): CarbonInterface
+    {
+        return $left->subSeconds($seconds);
     }
 
     public static function now(string $timezone = null): CarbonInterface
