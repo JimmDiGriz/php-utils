@@ -34,14 +34,18 @@ class DateUtils
         return $left->diffInMinutes($right);
     }
 
-    public static function addMinutes(CarbonInterface $left, int $minutes): CarbonInterface
+    public static function addMinutes(CarbonInterface $left, int $minutes, string $timezone = null): CarbonInterface
     {
-        return $left->addMinutes($minutes);
+        $clone = $left->clone();
+
+        return $clone->addMinutes($minutes)->setTimezone($timezone ?? static::DEFAULT_TIMEZONE);
     }
 
-    public static function subMinutes(CarbonInterface $left, int $minutes): CarbonInterface
+    public static function subMinutes(CarbonInterface $left, int $minutes, string $timezone = null): CarbonInterface
     {
-        return $left->subMinutes($minutes);
+        $clone = $left->clone();
+
+        return $clone->subMinutes($minutes)->setTimezone($timezone ?? static::DEFAULT_TIMEZONE);
     }
 
     public static function getSecondsDiff(CarbonInterface $left, CarbonInterface $right): int
@@ -49,14 +53,18 @@ class DateUtils
         return $left->diffInSeconds($right);
     }
 
-    public static function addSeconds(CarbonInterface $left, int $seconds): CarbonInterface
+    public static function addSeconds(CarbonInterface $left, int $seconds, string $timezone = null): CarbonInterface
     {
-        return $left->addSeconds($seconds);
+        $clone = $left->clone();
+
+        return $clone->addSeconds($seconds)->setTimezone($timezone ?? static::DEFAULT_TIMEZONE);
     }
 
-    public static function subSeconds(CarbonInterface $left, int $seconds): CarbonInterface
+    public static function subSeconds(CarbonInterface $left, int $seconds, string $timezone = null): CarbonInterface
     {
-        return $left->subSeconds($seconds);
+        $clone = $left->clone();
+
+        return $clone->subSeconds($seconds)->setTimezone($timezone ?? static::DEFAULT_TIMEZONE);
     }
 
     public static function now(string $timezone = null): CarbonInterface
