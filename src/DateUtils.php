@@ -69,7 +69,7 @@ class DateUtils
         return static::now()->format(static::DEFAULT_DATE_TIME_FORMAT);
     }
 
-    public function getDiffInMinutesAndSeconds(CarbonInterface $left, CarbonInterface $right): array
+    public static function getDiffInMinutesAndSeconds(CarbonInterface $left, CarbonInterface $right): array
     {
         $secondsSub = static::getSecondsDiff($left, $right);
 
