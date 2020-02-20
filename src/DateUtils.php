@@ -34,6 +34,11 @@ class DateUtils
         return $left->diffInMinutes($right);
     }
 
+    public static function getAbsoluteMinutesDiff(CarbonInterface $left, CarbonInterface $right): int
+    {
+        return abs($left->minute - $right->minute);
+    }
+
     public static function addMinutes(CarbonInterface $left, int $minutes, string $timezone = null): CarbonInterface
     {
         $clone = $left->clone();
