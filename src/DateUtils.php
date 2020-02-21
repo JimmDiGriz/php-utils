@@ -36,7 +36,13 @@ class DateUtils
 
     public static function getAbsoluteMinutesDiff(CarbonInterface $left, CarbonInterface $right): int
     {
-        return abs($left->minute - $right->minute);
+        $minutesDiff = static::getMinutesDiff($left, $right);
+
+        if ($left->minute + $minutesDiff !== $right->minute) {
+            ++$minutesDiff;
+        }
+
+        return $minutesDiff;
     }
 
     public static function addMinutes(CarbonInterface $left, int $minutes, string $timezone = null): CarbonInterface
