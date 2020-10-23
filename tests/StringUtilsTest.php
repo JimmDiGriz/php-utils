@@ -80,4 +80,17 @@ class StringUtilsTest extends TestCase
         $this->assertEquals(StringUtils::splitByCamelCase('CamelCase'), ['Camel', 'Case']);
         $this->assertEquals(StringUtils::splitByCamelCase('Camel'), ['Camel']);
     }
+
+    public function testRemoveSuffix(): void
+    {
+        $this->assertEquals('24', StringUtils::removeSuffix('h', '24h'));
+        $this->assertEquals('24', StringUtils::removeSuffix('hm', '24hm'));
+        $this->assertEquals('24', StringUtils::removeSuffix('h', '24'));
+    }
+
+    public function testRemovePrefix(): void
+    {
+        $this->assertEquals('24', StringUtils::removePrefix('j', '24'));
+        $this->assertEquals('24', StringUtils::removePrefix('h', 'h24'));
+    }
 }

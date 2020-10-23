@@ -32,6 +32,24 @@ class StringUtils
         return static::isEndsWith($soughtFor, $source);
     }
 
+    public static function removeSuffix(string $suffix, string $source): string
+    {
+        if (!static::endsWith($suffix, $source)) {
+            return $source;
+        }
+
+        return mb_substr($source, 0, mb_strlen($source) - mb_strlen($suffix));
+    }
+
+    public static function removePrefix(string $prefix, string $source): string
+    {
+        if (!static::startsWith($prefix, $source)) {
+            return $source;
+        }
+
+        return mb_substr($source, mb_strlen($prefix));
+    }
+
     public static function stringContains(string $soughtFor, string $source): bool
     {
         return mb_strpos($source, $soughtFor) !== false;
