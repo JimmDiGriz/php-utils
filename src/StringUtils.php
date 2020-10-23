@@ -12,6 +12,26 @@ class StringUtils
         return 0 === mb_strpos($source, $soughtFor);
     }
 
+    public static function startsWith(string $soughtFor, string $source): bool
+    {
+        return static::isStartsWith($soughtFor, $source);
+    }
+
+    public static function isEndsWith(string $soughtFor, string $source): bool
+    {
+        $soughtLength = mb_strlen($soughtFor);
+        if ($soughtLength === 0) {
+            return true;
+        }
+
+        return mb_substr($source, -$soughtLength) === $soughtFor;
+    }
+
+    public static function endsWith(string $soughtFor, string $source): bool
+    {
+        return static::isEndsWith($soughtFor, $source);
+    }
+
     public static function stringContains(string $soughtFor, string $source): bool
     {
         return mb_strpos($source, $soughtFor) !== false;
@@ -189,7 +209,6 @@ class StringUtils
         }
 
         $result[] = $currentPart;
-
         return $result;
     }
 

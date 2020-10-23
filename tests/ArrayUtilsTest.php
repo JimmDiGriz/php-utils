@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class ArrayUtilsTest extends TestCase
 {
-    protected $source = [
+    protected array $source = [
         'test' => 'test',
         'test2' => 1,
     ];
